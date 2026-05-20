@@ -1,4 +1,6 @@
-pluginManagement {
+﻿pluginManagement {
+    includeBuild("build-logic")
+
     repositories {
         google {
             content {
@@ -20,8 +22,9 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "OtaDemo"
+rootProject.name = "NeoBaseApp"
 include(":app")
 include(":core")
 include(":feature:home")
 include(":feature:updater")
+

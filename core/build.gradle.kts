@@ -1,31 +1,10 @@
-plugins {
-    id("com.android.library")
+﻿plugins {
+    id("base.android.library")
+    id("base.ktlint")
 }
 
 android {
-    namespace = "com.example.otademo.core"
-    compileSdk =
-        libs.versions.compileSdkVersion
-            .get()
-            .toInt()
-
-    defaultConfig {
-        minSdk =
-            libs.versions.minSdkVersion
-                .get()
-                .toInt()
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-}
-
-kotlin {
-    compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
-    }
+    namespace = "com.example.neobaseapp.core"
 }
 
 dependencies {

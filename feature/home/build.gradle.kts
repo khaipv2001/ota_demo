@@ -1,25 +1,17 @@
-import java.util.Properties
+﻿import java.util.Properties
 
 plugins {
-    id("com.android.library")
-    id("org.jetbrains.kotlin.plugin.compose")
-    id("org.jetbrains.kotlin.plugin.serialization")
-    alias(libs.plugins.koin.compiler)
+    id("base.android.library")
+    id("base.android.compose")
+    id("base.android.koin")
+    id("base.ktlint")
+    alias(libs.plugins.kotlin.serialization)
 }
 
 android {
-    namespace = "com.example.otademo.feature.home"
-    compileSdk =
-        libs.versions.compileSdkVersion
-            .get()
-            .toInt()
+    namespace = "com.example.neobaseapp.feature.home"
 
     defaultConfig {
-        minSdk =
-            libs.versions.minSdkVersion
-                .get()
-                .toInt()
-
         val localProperties = Properties()
         val localPropertiesFile = rootProject.file("local.properties")
         if (localPropertiesFile.exists()) {
@@ -30,19 +22,7 @@ android {
     }
 
     buildFeatures {
-        compose = true
         buildConfig = true
-    }
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
-    }
-}
-
-kotlin {
-    compilerOptions {
-        jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_17)
     }
 }
 
@@ -53,17 +33,6 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)
     implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.compose.ui)
-    implementation(libs.androidx.compose.ui.tooling.preview)
-    implementation(libs.androidx.compose.material3)
-
-    implementation(platform(libs.koin.bom))
-    implementation(libs.koin.core)
-    implementation(libs.koin.android)
-    implementation(libs.koin.androidx.compose)
-    implementation(libs.koin.annotations)
-
     implementation(libs.kotlinx.coroutines.core)
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.retrofit)
@@ -71,13 +40,4 @@ dependencies {
     implementation(libs.okhttp)
     implementation(libs.okhttp.logging.interceptor)
     implementation(libs.timber)
-
-    debugImplementation(libs.androidx.compose.ui.tooling)
-}
-
-koinCompiler {
-    compileSafety = true
-    userLogs = true
-    debugLogs = false
-    unsafeDslChecks = true
 }

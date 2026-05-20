@@ -196,3 +196,4 @@ sentry-debug-meta.properties
 !.github/
 !.gitlab-ci.yml
 !Jenkinsfile
+/plans/
