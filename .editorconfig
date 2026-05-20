@@ -1,0 +1,8 @@
+root = true
+
+[*.{kt,kts}]
+ktlint_function_naming_ignore_when_annotated_with = Composable
+
+# Compose Rules (ktlint ruleset id: compose)
+# See: https://mrmans0n.github.io/compose-rules/ktlint/
+compose_check_modifiers_for_visibility = public_and_internal

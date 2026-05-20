@@ -1,0 +1,7 @@
+<resources>
+    <string name="update_available_title">Update available</string>
+    <string name="update_now">Update now</string>
+    <string name="later">Later</string>
+    <string name="downloading">Downloading: %1$d%%</string>
+    <string name="installing">Installing update...</string>
+</resources>

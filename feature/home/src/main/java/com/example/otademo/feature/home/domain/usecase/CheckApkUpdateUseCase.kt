@@ -8,7 +8,5 @@ import kotlinx.coroutines.flow.Flow
 class CheckApkUpdateUseCase(
     private val apkUpdateRepository: ApkUpdateRepository,
 ) {
-    operator fun invoke(currentVersionCode: Int): Flow<Result<ApkUpdateModel>> {
-        return apkUpdateRepository.getLatestRelease(currentVersionCode)
-    }
+    operator fun invoke(currentVersionCode: Int): Flow<Result<ApkUpdateModel>> = apkUpdateRepository.getLatestRelease(currentVersionCode)
 }

@@ -9,7 +9,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.otademo.feature.home"
+    namespace = "com.example.otademo.feature.updater"
     compileSdk =
         libs.versions.compileSdkVersion
             .get()
@@ -49,7 +49,6 @@ kotlin {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":feature:updater"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.compose)

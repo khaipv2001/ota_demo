@@ -2,16 +2,26 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.koin.compiler)
 }
 
 android {
     namespace = "com.example.otademo"
-    compileSdk = libs.versions.compileSdkVersion.get().toInt()
+    compileSdk =
+        libs.versions.compileSdkVersion
+            .get()
+            .toInt()
 
     defaultConfig {
         applicationId = "com.example.otademo"
-        minSdk = libs.versions.minSdkVersion.get().toInt()
-        targetSdk = libs.versions.targetSdkVersion.get().toInt()
+        minSdk =
+            libs.versions.minSdkVersion
+                .get()
+                .toInt()
+        targetSdk =
+            libs.versions.targetSdkVersion
+                .get()
+                .toInt()
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -47,6 +57,7 @@ kotlin {
 dependencies {
     implementation(project(":core"))
     implementation(project(":feature:home"))
+    implementation(project(":feature:updater"))
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
@@ -61,6 +72,7 @@ dependencies {
     implementation(libs.koin.core)
     implementation(libs.koin.android)
     implementation(libs.koin.androidx.compose)
+    implementation(libs.koin.annotations)
     implementation(libs.timber)
 
     testImplementation(libs.junit)
@@ -70,4 +82,11 @@ dependencies {
     androidTestImplementation(libs.androidx.compose.ui.test.junit4)
     debugImplementation(libs.androidx.compose.ui.tooling)
     debugImplementation(libs.androidx.compose.ui.test.manifest)
+}
+
+koinCompiler {
+    compileSafety = true
+    userLogs = true
+    debugLogs = false
+    unsafeDslChecks = true
 }

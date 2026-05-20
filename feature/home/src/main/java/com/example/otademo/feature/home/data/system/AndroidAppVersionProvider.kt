@@ -7,7 +7,6 @@ import com.example.otademo.feature.home.domain.model.AppVersionProvider
 class AndroidAppVersionProvider(
     private val context: Context,
 ) : AppVersionProvider {
-
     override val versionCode: Int
         get() {
             val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)

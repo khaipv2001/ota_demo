@@ -15,29 +15,28 @@ class HomeViewModel(
     private val checkApkUpdateUseCase: CheckApkUpdateUseCase,
     private val appVersionProvider: AppVersionProvider,
 ) : BaseViewModel() {
-
     private var checkUpdateJob: Job? = null
 
     fun checkUpdate() {
         if (checkUpdateJob?.isActive == true) return
 
-        checkUpdateJob = viewModelScope.launch {
-            Timber.d("Checking APK update")
-            checkApkUpdateUseCase(appVersionProvider.versionCode).collectLatest { result ->
-                result
-                    .onSuccess { apkUpdate ->
-                        Timber.d(
-                            "APK update checked. available=%s force=%s latest=%s url=%s",
-                            apkUpdate.isUpdateAvailable,
-                            apkUpdate.isForceUpdate,
-                            apkUpdate.latestVersionName,
-                            apkUpdate.apkUrl,
-                        )
-                    }
-                    .onError { throwable ->
-                        Timber.e(throwable, "APK update check failed")
-                    }
+        checkUpdateJob =
+            viewModelScope.launch {
+                Timber.d("Checking APK update")
+                checkApkUpdateUseCase(appVersionProvider.versionCode).collectLatest { result ->
+                    result
+                        .onSuccess { apkUpdate ->
+                            Timber.d(
+                                "APK update checked. available=%s force=%s latest=%s url=%s",
+                                apkUpdate.isUpdateAvailable,
+                                apkUpdate.isForceUpdate,
+                                apkUpdate.latestVersionName,
+                                apkUpdate.apkUrl,
+                            )
+                        }.onError { throwable ->
+                            Timber.e(throwable, "APK update check failed")
+                        }
+                }
             }
-        }
     }
 }

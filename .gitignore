@@ -1,17 +1,198 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
-.idea/
+# ==========================================
+# Android / Kotlin / Gradle .gitignore
+# Optimized for Android Studio projects
+# ==========================================
+
+# ========== OS GENERATED FILES ==========
 .DS_Store
-build/
-**/build/
-/captures
-.externalNativeBuild
-.cxx
+Thumbs.db
+Desktop.ini
+
+# ========== IDE / ANDROID STUDIO ==========
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# Android Studio cache
+.idea/caches/
+.idea/libraries/
+.idea/modules.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/shelf/
+
+# Keep code styles / inspections if shared in team
+!.idea/codeStyles
+!.idea/codeStyles/*
+!.idea/inspectionProfiles
+!.idea/inspectionProfiles/*
+
+# Local config
 local.properties
+
+# ========== GRADLE ==========
+.gradle/
+build/
+*/build/
+
+# Gradle cache lock
+.gradle-cache/
+
+# Kotlin DSL accessors
+.gradle.kts.cache/
+
+# Avoid including wrapper jar checksum files
+!gradle/wrapper/gradle-wrapper.jar
+
+# ========== KOTLIN ==========
+*.kotlin_module
+
+# KSP
+.ksp/
+
+# KAPT
+generated/
+*/generated/
+
+# Kotlin Native
+konan/
+
+# ========== APK / AAB / OUTPUT ==========
+*.apk
+*.ap_
+*.aab
+*.aab.sig
+*.aar
+
+# Mapping / crash symbols
+mapping/
+outputs/
+captures/
+
+# ========== LOGS ==========
+*.log
+
+# ========== NDK / CMAKE ==========
+.externalNativeBuild/
+.cxx/
+
+# ========== FASTLANE ==========
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# ========== FIREBASE ==========
+google-services.json
+firebase.json
+
+# Uncomment if using Crashlytics NDK
+# crashlytics.properties
+# fabric.properties
+
+# ========== SECRETS / ENV ==========
+.env
+.env.*
+secret.properties
+keystore.properties
+
+# Signing files
+*.jks
+*.keystore
+*.pem
+*.p12
+
+# ========== DATABASES ==========
+*.db
+*.sqlite
+*.sqlite3
+
+# ========== TEMP FILES ==========
+*.tmp
+*.temp
+*.swp
+*.swo
+
+# ========== TEST / COVERAGE ==========
+coverage/
+jacoco/
+*.ec
+
+# Android test outputs
+test-results/
+androidTest-results/
+
+# ========== PROFILER ==========
+*.hprof
+
+# ========== COMPOSE ==========
+compose_compiler/
+
+# ========== KMM ==========
+# Uncomment if project uses Kotlin Multiplatform
+
+# iOS
+# ios/Pods/
+# ios/.symlinks/
+# ios/build/
+
+# CocoaPods
+# Podfile.lock
+
+# Xcode
+# *.xcodeproj/project.xcworkspace/
+# *.xcworkspace
+# DerivedData/
+
+# ========== ROOM ==========
+schemas/
+
+# Uncomment if you DON'T want Room schemas in git
+# schemas/
+
+# ========== DETEKT / KTLINT ==========
+detekt/
+ktlint/
+
+# ========== MACROS ==========
+.idea/httpRequests/
+
+# ========== EMULATOR ==========
+*.avd
+*.qcow2
+
+# ========== CACHE ==========
+.cache/
+tmp/
+
+# ========== NODE (if hybrid project) ==========
+node_modules/
+
+# ========== VSCODE ==========
+.vscode/
+
+# ========== SENTRY ==========
+sentry-debug-meta.properties
+
+# ==========================================
+# RECOMMENDED TO KEEP IN GIT
+# ==========================================
+
+# Gradle Wrapper
+!gradlew
+!gradlew.bat
+!gradle/wrapper/gradle-wrapper.properties
+
+# Proguard rules
+!proguard-rules.pro
+
+# Shared editor configs
+!.editorconfig
+
+# CI/CD
+!.github/
+!.gitlab-ci.yml
+!Jenkinsfile

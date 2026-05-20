@@ -23,5 +23,5 @@ dependencyResolutionManagement {
 rootProject.name = "OtaDemo"
 include(":app")
 include(":core")
-include(":core:updater")
 include(":feature:home")
+include(":feature:updater")

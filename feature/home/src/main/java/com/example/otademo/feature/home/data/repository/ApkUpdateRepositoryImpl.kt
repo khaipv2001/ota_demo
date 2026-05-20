@@ -14,7 +14,6 @@ import kotlinx.coroutines.flow.flowOn
 class ApkUpdateRepositoryImpl(
     private val api: ApkUpdateApi,
 ) : ApkUpdateRepository {
-
     override fun getLatestRelease(currentVersionCode: Int): Flow<Result<ApkUpdateModel>> =
         flow<Result<ApkUpdateModel>> {
             val apkUpdate = api.getLatestRelease().toDomain(currentVersionCode)
